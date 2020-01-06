@@ -3,34 +3,18 @@
     <section class="intro">
       <h1>Get the Latest tech news!</h1>
     </section>
-    <section class="featured-posts">
-     <PostPreview
-     id="1"
-     thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
-     title="Hello Word"
-     previewText="This is my first post!" />
-     <PostPreview
-     id="2"
-     thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
-     title="Hello There - the second time"
-     previewText="This is my Second post!" />
-     <PostPreview
-     id="3"
-     thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
-     title="Hi"
-     previewText="This is my third post!" />
-    </section>
+    <PostList />
   </div>
 
 </template>
 
 
 <script>
-import PostPreview from '@/components/Posts/PostsPreview'
+import PostList from '@/components/Posts/PostList'
 
 export default {
     components:{
-        PostPreview
+        PostList
     }
 }
 </script>
