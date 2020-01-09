@@ -2,16 +2,19 @@
     <section class="post-list">
         <PostPreview
         id="1"
+        :is-admin="isAdmin"
         thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
         title="Hello Word"
         previewText="This is my first post!" />
         <PostPreview
         id="2"
+        :is-admin="isAdmin"
         thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
         title="Hello There - the second time"
         previewText="This is my Second post!" />
         <PostPreview
         id="3"
+        :is-admin="isAdmin"
         thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
         title="Hi"
         previewText="This is my third post!" />
@@ -24,6 +27,12 @@ import PostPreview from '@/components/Posts/PostsPreview'
 export default {
     components:{
         PostPreview
+    },
+    props: {
+        isAdmin: {
+            type: Boolean,
+            default: false
+        }
     }    
 }
 </script>
