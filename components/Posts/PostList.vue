@@ -1,23 +1,13 @@
 <template>
     <section class="post-list">
         <PostPreview
-        id="1"
+        v-for="post in posts"
+        :key="post.id"
+        :id="post.id"
         :is-admin="isAdmin"
-        thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
-        title="Hello Word"
-        previewText="This is my first post!" />
-        <PostPreview
-        id="2"
-        :is-admin="isAdmin"
-        thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
-        title="Hello There - the second time"
-        previewText="This is my Second post!" />
-        <PostPreview
-        id="3"
-        :is-admin="isAdmin"
-        thumbnail="https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg"
-        title="Hi"
-        previewText="This is my third post!" />
+        :thumbnail="post.thumbnail"
+        :title="post.title"
+        :previewText="post.previewText" />
     </section>        
 </template>
 
@@ -32,8 +22,12 @@ export default {
         isAdmin: {
             type: Boolean,
             default: false
+        },
+        posts: {
+            type:Array,
+            required:true
         }
-    }    
+    }
 }
 </script>
 
