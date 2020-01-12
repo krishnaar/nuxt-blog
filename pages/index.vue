@@ -13,26 +13,53 @@
 import PostList from '@/components/Posts/PostList'
 
 export default {
-    components: {
-        PostList
-    },
-    data() {
-      return {
-        loadedPosts: [
-        { 
-          id: '1', 
-          title: "First Post", 
-          previewText: 'This is our first post!', 
-          thumbnail: 'https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg'
-        },
-        { 
-          id: '2', 
-          title: "Second Post", 
-          previewText: 'This is our second post!', 
-          thumbnail: 'https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg'
-        }
-      ]
-    }
+  components: {
+      PostList
+  },
+  asyncData(context, callback) {
+    setTimeout (() => {
+        callback (null, {
+          loadedPosts: [
+          { 
+            id: '1', 
+            title: "First Post", 
+            previewText: 'This is our first post!', 
+            thumbnail: 'https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg'
+          },
+          { 
+            id: '2', 
+            title: "Second Post", 
+            previewText: 'This is our second post!', 
+            thumbnail: 'https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg'
+          }
+        ]
+      })
+    }, 1500)
+  },
+  // data() {
+  //   return {
+  //     loadedPosts: [
+      
+  //     ]
+  //   };
+  // },
+  created() {
+    setTimeout (() => {
+        this.loadedPosts = [
+          { 
+            id: '1', 
+            title: "First Post", 
+            previewText: 'This is our first post!', 
+            thumbnail: 'https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg'
+          },
+          { 
+            id: '2', 
+            title: "Second Post", 
+            previewText: 'This is our second post!', 
+            thumbnail: 'https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg'
+          }
+        ]
+    }, 1500)
   }
 }
 </script>
