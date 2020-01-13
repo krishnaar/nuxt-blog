@@ -1,18 +1,38 @@
 <template>
     <div class="single-post-page">
         <section class="post">
-            <h1 class="post-title">Title of the Post</h1>
+            <h1 class="post-title">{{ loadedPost.title }}</h1>
             <div class="post-details">
-                <div class="post-detail" >Last updaterd on XXX</div>
-                <div class="post-detail" >Write by NAME</div>
+                <div class="post-detail" >Last updated on {{ loadedPost.updatedDate }}</div>
+                <div class="post-detail" >Write by {{ loadedPost.author }}</div>
             </div>
-            <p class="post-content">Content of the post</p>
+            <p class="post-content">{{ loadedPost.content }}</p>
         </section>
         <section class="post-feedback">
             <p>Let me know what you think about the post, send a mail to <a href="mailto:feeedback@my-awesome-domain.com">feeedback@my-awesome-domain.com</a>.</p>
         </section>
     </div>
 </template>
+
+<script>
+export default {
+  asyncData(context, callback) {
+    setTimeout(() => {
+      callback(null, {
+        loadedPost: {
+          id: '1', 
+          title: 'First Post (ID: '+ context.route.params.id +')', 
+          previewText: 'This is our first post!',
+          author:  'Krishna',
+          updatedDate: new Date(),
+          content: 'Some dummy text which is definitly not the preview text though!',
+          thumbnail: 'https://todayidol.com/wp-content/uploads/2015/11/Shimazaki-Haruka-Baito-AKB48.jpg'
+        }
+      })
+    },1000)
+  }
+}
+</script>
 
 <style scoped>
 .single-post-page {
