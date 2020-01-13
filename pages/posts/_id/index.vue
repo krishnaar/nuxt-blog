@@ -17,6 +17,9 @@
 <script>
 export default {
   asyncData(context, callback) {
+    return new Promise().catch( e => {
+      context.error(new Error())
+    })
     setTimeout(() => {
       callback(null, {
         loadedPost: {
